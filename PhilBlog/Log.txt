@@ -1,0 +1,63 @@
+Project建置:
+    PhilBlog:
+        Css                                                   擺放Css目錄
+        Js                                                    擺放Js目錄
+        Source
+            admin.php                                         後台
+            index.php                                         前台
+            Config
+                Action.inc.php                                核心轉介文件，Controller實例化主要頁面
+                Config.inc.php                                共用基本配置、基本常數
+                functions.inc.php                             共用函數
+            Common
+                Controller
+                    Controller.class.php                      Controller的父類、實例化View.class.php用
+                Model
+                    Model.class.php                           Model的父類，內容有各種驗證及增刪改查方法
+                View
+                    View.class.php                            根據不同的Controller和Method去include不同的View介面
+                Factory
+                    Factory.class.php                         實例化類工廠
+                    ControllerFactory.class.php               負責Controller類處理的工廠
+                DB
+                    DB.class.php                              資料庫類
+                Url.class.php                                 分析URL地址
+            Admin
+                Controller
+                    IndexController.class.php
+                    TypeController.class.php                   根據不同TypeController方法選擇不同的欄位處理方式
+                View
+                    add.view.php                               顯示欄位頁面
+                    index.view.php                             新增欄位頁面
+                Model
+                    TypeModel.class.php                        設置驗證用的自訂義規則、別名、時機等等
+            Index
+                Controller
+                View
+                Model
+
+
+資料表設計：
+	欄位 Phil_arctype
+		id				     id
+		父欄位id		       	pid
+		最上層目錄id			tid
+		欄位名稱		        name
+		url目錄名稱	  	 urlname
+		界面			        view
+		網頁標題		       title
+		網頁關鍵字	   	keywords
+		網頁描述		 description
+		排序			        sort
+    Phil_arctype 簡易架構示意：
+        皮鞋(id:1，pid:0，tid:1)            如pid為0，表示沒有父欄位，本身就是最上層欄位
+            樂福(id:2，pid:1，tid:1)
+            牛津(id:3，pid:1，tid:1)
+                牛皮(id:4，pid:3，tid:1)    最上層欄位為  皮鞋、父欄位為 牛津
+                麂皮(id:5，pid:3，tid:1)
+            德彼(id:6，pid:1，tid:1)
+        球鞋(id:7，pid:0，tid:7)
+            NIKE(id:8，pid:7，tid:7)
+            NEWBALANCE(id:9，pid:7，tid:7)
+                慢跑(id:10，pid:9，tid:7)
+                籃球(id:11，pid:9，tid:7)
