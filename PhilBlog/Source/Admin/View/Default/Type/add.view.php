@@ -8,29 +8,71 @@ if(!defined('HAOFUN'))
 <html>
 <head>
     <meta charset="utf-8">
-    <title>bootstrap</title>
+    <title>新增欄位頁面</title>
     <link rel="stylesheet" type="text/css" href="/PhilBlog/Css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/PhilBlog/Css/public.css">
-    <style type="text/css">
-        #header
+    <link rel="stylesheet" type="text/css" href="/PhilBlog/Css/Common.css">
+    <script type="text/javascript" src="/PhilBlog/Js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="/PhilBlog/Js/jqueryvalidation/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/PhilBlog/Js/jqueryvalidation/messages_zh.js"></script>
+    <script type="text/javascript">   //jqueryvalidation 插件
+        $(function()
         {
-            width: 100%;
-            height: 40px;
-            border-bottom: 1px solid #e3e3e3;
-        }
-        #header h1
-        {
-            font-size: 40px;
-            line-height: 40px;
-            margin: 0 0 0 20px;
-            color: #333;
-            font-weight: bold;
-        }
-        #main-body
-        {
-            margin: 10px;
-        }
-    </style>
+            $('#add-type').validate
+            ({
+                rules:{
+                    name:
+                    {
+                        required:true,
+                        rangelength:[1,255]
+                    },
+                    urlname:
+                    {
+                        required:true,
+                        rangelength:[1,255]
+                    },
+                    view:
+                    {
+                        required:true,
+                        rangelength:[1,255]
+                    },
+                    title:
+                    {
+                        required:true,
+                        rangelength:[1,255]
+                    },
+                    keywords:
+                    {
+                        required:true,
+                        rangelength:[1,255]
+                    },
+                    description:
+                    {
+                        required:true,
+                        rangelength:[1,500]
+                    },
+                    sort:
+                    {
+                        required:true,
+                        number:true,
+                        range:[0,4294967295]
+                    }
+                },
+                errorPlacement:function(error,element)  //錯誤提示位置
+                {
+                    $(element).parent().next().html(error);
+                },
+                highlight:function(element)             //新增CSS效果
+                {
+                    $(element).parent().addClass('has-error');
+                },
+                unhighlight:function(element)          //移除CSS效果
+                {
+                    $(element).parent().removeClass('has-error');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <div id="header">
@@ -40,24 +82,24 @@ if(!defined('HAOFUN'))
     <div class="row">
         <div class="col-md-2">
             <div class="list-group">
-                <a href="#" class="list-group-item active">欄位列表</a>
-                <a href="#" class="list-group-item">添加欄位</a>
+                <a href="/PhilBlog/admin.php/type/index" class="list-group-item">欄位列表</a>
+                <a href="/PhilBlog/admin.php/type/add" class="list-group-item active">新增欄位</a>
             </div>
-            <div class="list-group">
-                <a href="#" class="list-group-item">欄位列表</a>
-                <a href="#" class="list-group-item">添加欄位</a>
-            </div>
+<!--            <div class="list-group">-->
+<!--                <a href="#" class="list-group-item">欄位列表</a>-->
+<!--                <a href="#" class="list-group-item">添加欄位</a>-->
+<!--            </div>-->
         </div>
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">添加欄位</div>
+                <div class="panel-heading">新增欄位</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="post">
+                    <form id="add-type" class="form-horizontal" method="post">
                         <div class="form-group row">
                             <label for="input0" class="col-md-2 control-label">所屬欄位</label>
                             <div class="col-md-8">
                                 <select name="pid" class="form-control">
-                                    <option value="0">最上層欄位</option>
+                                    <option value="0">主要欄位</option>
                                     <?PHP
                                         //獲取樹狀結構處理後的所有欄位
                                         foreach ($this->getData('arctype') as $value)
@@ -68,7 +110,7 @@ if(!defined('HAOFUN'))
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -77,7 +119,7 @@ if(!defined('HAOFUN'))
                                 <input name="name" type="text" class="form-control" id="input1" placeholder="輸入欄位名稱">
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -86,7 +128,7 @@ if(!defined('HAOFUN'))
                                 <input name="urlname" type="text" class="form-control" id="input2" placeholder="輸入URL目錄">
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -95,7 +137,7 @@ if(!defined('HAOFUN'))
                                 <input name="view" type="text" class="form-control" id="input3" placeholder="輸入欄位介面">
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -104,7 +146,7 @@ if(!defined('HAOFUN'))
                                 <input name="title" type="text" class="form-control" id="input4" placeholder="輸入SEO標題">
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -113,7 +155,7 @@ if(!defined('HAOFUN'))
                                 <input name="keywords" type="text" class="form-control" id="input5" placeholder="輸入SEO關鍵字">
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -122,7 +164,7 @@ if(!defined('HAOFUN'))
                                 <textarea name="description" class="form-control" rows="3" id="input6" placeholder="輸入SEO描述"></textarea>
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group row">
@@ -131,7 +173,7 @@ if(!defined('HAOFUN'))
                                 <input name="sort" type="text" class="form-control" id="input7" value="999" placeholder="輸入排序">
                             </div>
                             <div class="col-md-2">
-                                提示訊息
+
                             </div>
                         </div>
                         <div class="form-group">

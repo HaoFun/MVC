@@ -14,22 +14,26 @@ class View
     private $data;
     /*
     display($path=null)
-    這個方法可以傳入一個路徑
-    預設為NULL不傳值，有傳的話就根據傳入進來的值
+    這個方法可以傳入一個文件名稱
+    預設為NULL不傳值，有傳的話就根據傳入進來的名稱去使用inc()加載對應的VIEW
      */
     public function display($path=null)
     {
         if($path==null)
         {
             $path=$this->getViewPath();
-        }
-        if(file_exists($path))
-        {
-            include $path;     //引入對應的VIEW文件
+            if(file_exists($path))
+            {
+                include $path;     //引入對應的VIEW文件
+            }
+            else
+            {
+                echo "{$path}--VIEW不存在";
+            }
         }
         else
         {
-            echo "{$path}--VIEW不存在";
+            $this->inc($path);
         }
     }
     public function setData($name,$value)        //set數據

@@ -20,20 +20,28 @@ class TypeController extends Controller
     }
     public function index()
     {
-
+        $this->view->display();
     }
     public function add()
     {
-        $tree=new Tree($this->model->getAll());  //實例化樹狀結構
-        $this->view->setData('arctype',$tree->getTreeAll());
         if(!empty($_POST))
         {
-            $this->model->add($_POST);
-            if($this->model->getError()!=Null)
+            if($this->model->add($_POST))
             {
-                var_dump($this->model->getError());
+                $this->view->setData('message','新增成功');
+                $this->view->setData('skip','success');
+                $this->view->setData('URL','/PhilBlog/admin.php/type/index');
             }
+            else
+            {
+                $this->view->setData('message',$this->model->getError());
+                $this->view->setData('skip','danger');
+                $this->view->setData('URL','/PhilBlog/admin.php/type/add');
+            }
+            $this->view->display('skip');
         }
+        $tree=new Tree($this->model->getAll());  //實例化樹狀結構
+        $this->view->setData('arctype',$tree->getTreeAll());
         $this->view->display();
     }
     public function update()

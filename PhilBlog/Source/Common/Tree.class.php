@@ -84,7 +84,7 @@ class Tree
     //獲取該數據 樹狀結構數據(階層)
     public function getTreeAll()
     {
-        //清空$treePosterity，防止重複使用
+        //清空$treePosterity，防止重複賦值
         $this->treePosterity=null;
         foreach ($this->getTop() as $value)
         {
@@ -117,7 +117,7 @@ class Tree
     //外部使用 獲取$id的所有子欄位
     public function getPosterity($id)
     {
-        //清空$treePosterity，防止重複使用
+        //清空$treePosterity，防止重複賦值
         $this->treePosterity=null;
         $this->parsePosterity($id);
         return $this->treePosterity;
