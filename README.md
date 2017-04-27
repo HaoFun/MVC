@@ -4,6 +4,8 @@
 
 PHP、Mysql
 
-PHP有使用namespace、pathinfoURL
+PHP有使用namespace、pathinfoURL、spl_autoload(自動加載對應類文件)
+
+Mysql query有使用預處理(stmt_bind)，防止SQL注入攻擊
 
 使用Jqueryvalidation插件驗證表單
