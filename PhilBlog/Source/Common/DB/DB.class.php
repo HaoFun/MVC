@@ -101,6 +101,7 @@ class DB extends \mysqli     //繼承mysqli
     {
         @$this->close();
     }
+
     private function dError($error)  //Mysql錯誤處理
     {
         throw new \Exception($error);

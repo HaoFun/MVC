@@ -55,7 +55,7 @@ class Tree
         }
     }
 
-    //獲取$id的最上層欄位(這裡主要用於計算階層)
+    //獲取$id的主目錄欄位(這裡主要用於計算階層)
     public function getAncestor($id)
     {
         $tmp=array();
@@ -68,7 +68,7 @@ class Tree
         return $tmp;
     }
 
-    //獲取所有最上層欄位
+    //獲取所有主目錄欄位
     public function getTop()
     {
         if(isset($this->treeDataPid[0]))
@@ -88,7 +88,7 @@ class Tree
         $this->treePosterity=null;
         foreach ($this->getTop() as $value)
         {
-            //因parsePosterity()方法只會獲取全部的子欄位，故這邊先把最上層欄位加入$treePosterity裡
+            //因parsePosterity()方法只會獲取全部的子欄位，故這邊先把主目錄欄位加入$treePosterity裡
             $this->treePosterity[$value['id']]=$value;
             $this->parsePosterity($value['id']);
         }

@@ -66,7 +66,7 @@ if(!defined('HAOFUN'))
                 {
                     $(element).parent().addClass('has-error');
                 },
-                unhighlight:function(element)          //移除CSS效果
+                unhighlight:function(element)           //移除CSS效果
                 {
                     $(element).parent().removeClass('has-error');
                 }
@@ -99,7 +99,7 @@ if(!defined('HAOFUN'))
                             <label for="input0" class="col-md-2 control-label">所屬欄位</label>
                             <div class="col-md-8">
                                 <select name="pid" class="form-control">
-                                    <option value="0">主要欄位</option>
+                                    <option value="0">主目錄欄位</option>
                                     <?PHP
                                         //獲取樹狀結構處理後的所有欄位
                                         foreach ($this->getData('arctype') as $value)

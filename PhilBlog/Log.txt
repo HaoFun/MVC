@@ -22,13 +22,19 @@ Project建置:
                 DB
                     DB.class.php                              資料庫類
                 Url.class.php                                 分析URL地址
+                Tree.class.php                                處理樹狀結構數據
             Admin
                 Controller
                     IndexController.class.php
                     TypeController.class.php                   根據不同TypeController方法選擇不同的欄位處理方式
                 View
-                    add.view.php                               顯示欄位頁面
-                    index.view.php                             新增欄位頁面
+                    Default
+                        Common
+                            skip.view.php                      轉址頁面(SHOW提示訊息)
+                        Index
+                        Type
+                            add.view.php                       顯示欄位頁面
+                            index.view.php                     新增欄位頁面
                 Model
                     TypeModel.class.php                        設置驗證用的自訂義規則、別名、時機等等
             Index
@@ -39,9 +45,9 @@ Project建置:
 
 資料表設計：
 	欄位 Phil_arctype
-		id				     id
-		父欄位id		       	pid
-		最上層目錄id			tid
+		id				      id
+		父欄位id		       	 pid
+		主目錄id  			 tid
 		欄位名稱		        name
 		url目錄名稱	  	 urlname
 		界面			        view
@@ -50,10 +56,10 @@ Project建置:
 		網頁描述		 description
 		排序			        sort
     Phil_arctype 簡易架構示意：
-        皮鞋(id:1，pid:0，tid:1)            如pid為0，表示沒有父欄位，本身就是最上層欄位
+        皮鞋(id:1，pid:0，tid:1)            如pid為0，表示沒有父欄位，本身就是主目錄欄位
             樂福(id:2，pid:1，tid:1)
             牛津(id:3，pid:1，tid:1)
-                牛皮(id:4，pid:3，tid:1)    最上層欄位為  皮鞋、父欄位為 牛津
+                牛皮(id:4，pid:3，tid:1)    主目錄欄位為  皮鞋、父欄位為 牛津
                 麂皮(id:5，pid:3，tid:1)
             德彼(id:6，pid:1，tid:1)
         球鞋(id:7，pid:0，tid:7)
