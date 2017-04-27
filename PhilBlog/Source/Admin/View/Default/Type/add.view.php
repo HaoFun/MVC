@@ -6,8 +6,18 @@ if(!defined('HAOFUN'))
 ?>
 <?php
 $this->title_name['title']="新增欄位頁面";
-$this->css['css']=array('/PhilBlog/Css/bootstrap/css/bootstrap.min.css','/PhilBlog/Css/public.css','/PhilBlog/Css/Common.css');
-$this->js['js']=array('/PhilBlog/Js/jquery-3.1.1.js','/PhilBlog/Js/jqueryvalidation/jquery.validate.min.js','/PhilBlog/Js/jqueryvalidation/messages_zh.js');
+$this->css['css']=array
+(
+    '../../Css/bootstrap/css/bootstrap.min.css',
+    '../../Css/public.css',
+    '../../Css/Common.css'
+);
+$this->js['js']=array
+(
+    '../../Js/jquery-3.1.1.js',
+    '../../Js/jqueryvalidation/jquery.validate.min.js',
+    '../../Js/jqueryvalidation/messages_zh.js'
+);
 $this->inc('header');
 ?>
     <script type="text/javascript">   //jqueryvalidation 插件

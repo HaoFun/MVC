@@ -8,6 +8,7 @@ if(!defined('HAOFUN'))
 <html>
 <head>
     <meta charset="utf-8">
+    <link href="../../Images/kapico.ico" rel="SHORTCUT ICON">
     <title><?PHP echo $this->title_name['title']; ?></title>
     <?PHP
     foreach ($this->css['css'] as $value)

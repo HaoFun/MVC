@@ -2,6 +2,7 @@ Project建置:
     PhilBlog:
         Css                                                   擺放Css目錄
         Js                                                    擺放Js目錄
+        Images                                                擺放Image目錄
         Source
             admin.php                                         後台
             index.php                                         前台

@@ -6,7 +6,12 @@ if(!defined('HAOFUN'))
 ?>
 <?php
 $this->title_name['title']="轉址中...";
-$this->css['css']=array('/PhilBlog/Css/bootstrap/css/bootstrap.min.css','/PhilBlog/Css/public.css','/PhilBlog/Css/Common.css');
+$this->css['css']=array
+(
+    '../../Css/bootstrap/css/bootstrap.min.css',
+    '../../Css/public.css',
+    '../../Css/Common.css'
+);
 $this->js['js']=array();
 $this->inc('header');
 ?>

@@ -10,10 +10,10 @@ if(!defined('HAOFUN'))
 }
 class View
 {
-    public  $title_name=array(); //存放頁面title資訊
-    public  $css=array();        //存在頁面使用css
-    public  $js=array();         //存放頁面使用js
-    private $viewPathDefault;    //存放include view的路徑
+    protected  $title_name=array(); //存放頁面title資訊
+    protected  $css=array();        //存在頁面使用css
+    protected  $js=array();         //存放頁面使用js
+    private $viewPathDefault;       //存放include view的路徑
     private $data;
     /*
     display($path=null)
