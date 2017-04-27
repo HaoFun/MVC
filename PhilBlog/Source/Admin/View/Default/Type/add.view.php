@@ -4,17 +4,12 @@ if(!defined('HAOFUN'))
     exit('Access Denied');
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>新增欄位頁面</title>
-    <link rel="stylesheet" type="text/css" href="/PhilBlog/Css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/PhilBlog/Css/public.css">
-    <link rel="stylesheet" type="text/css" href="/PhilBlog/Css/Common.css">
-    <script type="text/javascript" src="/PhilBlog/Js/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="/PhilBlog/Js/jqueryvalidation/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/PhilBlog/Js/jqueryvalidation/messages_zh.js"></script>
+<?php
+$this->title_name['title']="新增欄位頁面";
+$this->css['css']=array('/PhilBlog/Css/bootstrap/css/bootstrap.min.css','/PhilBlog/Css/public.css','/PhilBlog/Css/Common.css');
+$this->js['js']=array('/PhilBlog/Js/jquery-3.1.1.js','/PhilBlog/Js/jqueryvalidation/jquery.validate.min.js','/PhilBlog/Js/jqueryvalidation/messages_zh.js');
+$this->inc('header');
+?>
     <script type="text/javascript">   //jqueryvalidation 插件
         $(function()
         {
@@ -187,5 +182,6 @@ if(!defined('HAOFUN'))
         </div>
     </div>
 </div>
-</body>
-</html>
+<?php
+$this->inc('footer');
+?>

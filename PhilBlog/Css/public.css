@@ -2,6 +2,7 @@
 * { word-break: break-all; }
 body
 {
+	height: 100%;
 	margin:0px;
 	padding:0px;
 	font-size:16px;
